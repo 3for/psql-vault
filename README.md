@@ -51,7 +51,7 @@ or something a lot more involved:
 ### Host base access
 
 Postgres keeps its "gates" in [`pg_hba.conf`](https://www.postgresql.org/docs/9.5/static/auth-pg-hba-conf.html).
-If you want no password while 'psql -U postgres', change pg_hba.conf file line containing 'postgres' 'peer' to 'postgres' 'trust'.
+If you want no password while 'psql -U postgres', change pg_hba.conf file line containing 'postgres' 'peer' to 'postgres' 'trust'. Or, change the correspongding password as you like in the creds file.
 
 When running `psql-vault` image, you can provide your own `pg_hba.conf` setting the `PG_HBA` env variable which is a path to a custom `pg_hba.conf`.
 
