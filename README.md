@@ -51,6 +51,7 @@ or something a lot more involved:
 ### Host base access
 
 Postgres keeps its "gates" in [`pg_hba.conf`](https://www.postgresql.org/docs/9.5/static/auth-pg-hba-conf.html).
+If you want no password while 'psql -U postgres', change pg_hba.conf file line containing 'postgres' 'peer' to 'postgres' 'trust'.
 
 When running `psql-vault` image, you can provide your own `pg_hba.conf` setting the `PG_HBA` env variable which is a path to a custom `pg_hba.conf`.
 
@@ -172,6 +173,7 @@ db  | applying a custom host based access (pg_hba)
 ### Looking under the hood
 
 ```bash
+$ docker exec -it sample_db_1 bash
 $ psql -h localhost -U postgres -l                                                                                                   (master ✱ )
                                    List of databases
      Name      |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
@@ -192,6 +194,7 @@ $ psql -h localhost -U postgres -l                                              
 ```
 
 ```bash
+$ psql -U postgres
 postgres=# \du
                                    List of roles
  Role name |                         Attributes                         | Member of
