@@ -6,6 +6,15 @@ _this repo is `in progress`.. once this is close to be alpha, the docs will foll
 This is a [docker image](https://hub.docker.com/r/tolitius/psql-vault/) that combines an official [PostreSQL](https://www.postgresql.org/) docker image
 with getting its creds from [Vault](https://www.vaultproject.io/).
 
+## When rebooted?
+
+Once rebooted the test server, remove the containers and the postgres tmp lib files.
+
+```bash
+docker rm -f $(docker ps -aq)
+rm -r /tmp/var
+```
+
 ## Why bother?
 
 Most of the official images, including [Postgres](https://hub.docker.com/_/postgres/), recommend passing credentials to a docker image via
